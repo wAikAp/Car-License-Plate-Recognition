@@ -40,15 +40,13 @@ In the Python programming([source code are here](https://github.com/wAikAp/Car-L
 ![](https://raw.githubusercontent.com/wAikAp/Car-License-Plate-Recognition/master/output_images/31299736077_4f274523d6_b.jpg)
 
 **Then crop that position use** `tf.image.crop_to_bounding_box`
-```python
-cropped_image = tf.image.crop_to_bounding_box(image_np, int(d_ymin), int(d_xmin), int(d_ymax - d_ymin), int(d_xmax - d_xmin))```
+`cropped_image = tf.image.crop_to_bounding_box(image_np, int(d_ymin), int(d_xmin), int(d_ymax - d_ymin), int(d_xmax - d_xmin))`
 
 ------
 Then use openCV set the image from RGB  to gary
-```python
-gray = cv2.cvtColor(detect_cropped_image, cv2.COLOR_BGR2GRAY)
-gray = cv2.threshold(gray, 0, 255,cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
-gray = cv2.medianBlur(gray, 3)```
+`gray = cv2.cvtColor(detect_cropped_image, cv2.COLOR_BGR2GRAY)`
+`gray = cv2.threshold(gray, 0, 255,cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]`
+`gray = cv2.medianBlur(gray, 3)`
 
 [![](https://raw.githubusercontent.com/wAikAp/Car-License-Plate-Recognition/master/readmeImg/gary.png)](https://raw.githubusercontent.com/wAikAp/Car-License-Plate-Recognition/master/readmeImg/gary.png)
 
@@ -57,12 +55,10 @@ gray = cv2.medianBlur(gray, 3)```
 
 Lastly use the pytesseract to do the OCR.
 Set the config that means here is the pytesseract OCR white list for each characters.
-```python
-custom_config = r'-c tessedit_char_whitelist=ABCDEFGHJKLMNPQRSTUVWXYZ1234567890 --psm 6'```
+`custom_config = r'-c tessedit_char_whitelist=ABCDEFGHJKLMNPQRSTUVWXYZ1234567890 --psm 6'`
 
 OCR process and recognize the numbers and characters
-```python 
-plate_num = pytesseract.image_to_string(gray,config=custom_config)```
+`plate_num = pytesseract.image_to_string(gray,config=custom_config)`
 ------
 
 ### Finally the result looks like:
