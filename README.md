@@ -1,10 +1,9 @@
 # Car-License-Plate-Recognition
 Car License Plate numbers and charactes Recognition by TensorFlow and Pytesseract
-### Features
+
 - Recognize the numbers and characters of license plate for Hong Kong.
 - Only support Hong Kong license plate.
 - Suggested image size >= 1024 x 800
-- And the license plate must no offset in the image.
 
 ## Environment and Software package
 - Python 3.6.8
@@ -40,6 +39,7 @@ In the Python programming([source code are here](https://github.com/wAikAp/Car-L
 ![](https://raw.githubusercontent.com/wAikAp/Car-License-Plate-Recognition/master/output_images/31299736077_4f274523d6_b.jpg)
 
 **Then crop that position use** `tf.image.crop_to_bounding_box`
+
 `cropped_image = tf.image.crop_to_bounding_box(image_np, int(d_ymin), int(d_xmin), int(d_ymax - d_ymin), int(d_xmax - d_xmin))`
 
 ------
@@ -59,12 +59,15 @@ Set the config that means here is the pytesseract OCR white list for each charac
 
 OCR process and recognize the numbers and characters
 `plate_num = pytesseract.image_to_string(gray,config=custom_config)`
+
 ------
 
 ### Finally the result looks like:
 ![](https://raw.githubusercontent.com/wAikAp/Car-License-Plate-Recognition/master/readmeImg/result.png)
 ![](https://raw.githubusercontent.com/wAikAp/Car-License-Plate-Recognition/master/readmeImg/result2.png)
 
+------
+# End
 This project just a simple idea for how to recognize the car license plate it is not > 50% accurate, and nows day have a lot of machine learning platforms and new tech, so here just an example for combining the technique, don't let the frame and rule fixed your ideas! hope this project can help you get some new ideas. 
 
 
