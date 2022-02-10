@@ -17,7 +17,7 @@ Car License Plate numbers and charactes Recognition by TensorFlow and Pytesserac
 
 ## Project idea
 1. Use TensorFlow object detection to recognize the position of the license plate on the image.
-2. dependence the position to do the OCR process by using the by tesseract to recognize those numbers and characters.
+2. dependence the position to do the OCR process by using the pytesseract to recognize those numbers and characters.
 
 
 
